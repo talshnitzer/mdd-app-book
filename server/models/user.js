@@ -18,8 +18,7 @@ var UserSchema = new mongoose.Schema({//store the schema of the user. we can add
     },
     memberId: {
         type: String,
-        required: true,
-        unique: true //no duplicate string in exist in db  
+        required: true
     }
     
 });

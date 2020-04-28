@@ -19,20 +19,25 @@ const transporter = nodemailer.createTransport({
 
 
 const  sendEmail = async (email, validationCode, userName ) => {
-
+  try{
     let mailOptions = {
-        from: '"MDDAppBook" <' + process.env.EMAIL_USER + '>', 
-        to: email, 
-        subject: 'Welcome to MDDAppBook', 
-        text: 'Verify Email', 
-        html: 
-        `Hi ${userName} <br><br> Thanks for registering to MDDAppBook.<br><br>`+
-        `Your validation code is <b>${validationCode}</b><br><br>`  +
-        `Please enter it as is in the app.<br><br>` +
-        `Thanks<br><br>MDDermatics`
-    };
+      from: '"MDDAppBook" <' + process.env.EMAIL_USER + '>', 
+      to: email, 
+      subject: 'Welcome to MDDAppBook', 
+      text: 'Verify Email', 
+      html: 
+      `Hi ${userName} <br><br> Thanks for registering to MDDAppBook.<br><br>`+
+      `Your validation code is <b>${validationCode}</b><br><br>`  +
+      `Please enter it as is in the app.<br><br>` +
+      `Thanks<br><br>MDDermatics`
+  };
 
-    await transporter.sendMail(mailOptions);
+  await transporter.sendMail(mailOptions);
+  } catch (e) {
+    console.log('error froms sent mail', e);
+    
+  }
+    
 }
 
   module.exports = {createValidationCode, sendEmail}
