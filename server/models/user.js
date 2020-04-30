@@ -19,8 +19,7 @@ var UserSchema = new mongoose.Schema({//store the schema of the user. we can add
     memberId: {
         type: String,
         required: true
-    }
-    
+    } 
 });
 
 //INSTANCE methods

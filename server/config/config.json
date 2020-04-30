@@ -7,7 +7,8 @@
     "development": {
         "PORT": 3000,
         "MONGODB_URI": "mongodb://localhost:27017/MddAppBook",
-        "EMAIL_USER": "shimon.shnitzer",
-        "EMAIL_PASSWORD": "yalla007"    
+        "EMAIL_HOST":"mail.dermatics.com",
+        "EMAIL_USER": "appbook@dermatics.com",
+        "EMAIL_PASSWORD": "dermatics123123"    
     }
 }

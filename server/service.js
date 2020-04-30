@@ -7,7 +7,7 @@ const createValidationCode = () => randomstring.generate({
   });
 
 const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
+    host: process.env.EMAIL_HOST,
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
