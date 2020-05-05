@@ -26,6 +26,16 @@ var UserSchema = new mongoose.Schema({//store the schema of the user. we can add
 
 
 //MODEL methods
+UserSchema.statics.addOrUpdateUser = async function (body) {
+    const User = this;
+    const updatedUser = await User.findOneAndUpdate({memberId: body.memberId},{$set: body}, {new: true});
+        if (!updatedUser){
+            const user = new User(body);
+            console.log('user', user);
+            const newUser = await user.save();
+            console.log('newUser',newUser);
+        }
+}
 
 
 var User = mongoose.model('User', UserSchema);

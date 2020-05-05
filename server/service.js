@@ -34,8 +34,7 @@ const  sendEmail = async (email, validationCode, userName ) => {
 
   await transporter.sendMail(mailOptions);
   } catch (e) {
-    console.log('error froms sent mail', e);
-    
+    throw new Error(e.message);
   }
     
 }

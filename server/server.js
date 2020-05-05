@@ -13,19 +13,14 @@ app.use(bodyParser.json()); //convert the request body from json to an object
 app.post('/register', async (req, res) => {
     try {
         const body = req.body;
-        const user = new User(body);
-        console.log('user', user);
-        
-        const newUser = await user.save();
-        console.log('newUser',newUser);
         //await func to send email with code
         const validationCode = createValidationCode()
-        await sendEmail(newUser.email, validationCode, newUser.name);
+        await sendEmail(body.email, validationCode, body.name);
+        await User.addOrUpdateUser(body)
         res.send({status: 'OK', validationCode});
     } catch (e) {
-        res.status(400).send(e)
-        console.log('e', {e});
-        
+        res.status(200).send({error: e.message})
+        console.log('e', e);
     }
     
 });
