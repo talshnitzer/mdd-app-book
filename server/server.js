@@ -2,11 +2,13 @@ require('./config/config.js');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const {createValidationCode, sendEmail} = require('./service');
 const {User} = require('./models/user');
 
 
 const app = express();
+app.use(cors());
 const port = process.env.PORT ;
 app.use(bodyParser.json()); //convert the request body from json to an object
 
@@ -26,7 +28,7 @@ app.post('/register', async (req, res) => {
 });
 
 
-app.listen(port, () => {
+app.listen(port, () => {  
     console.log(`Started up at port ${port}`);
 });
 
