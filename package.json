@@ -8,7 +8,7 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongodb": "^3.5.6",
-    "mongoose": "^5.9.10",
+    "mongoose": "^5.13.20",
     "nodemailer": "^6.4.16",
     "randomstring": "^1.1.5"
   },
